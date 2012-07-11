@@ -1,0 +1,39 @@
+<Project frameworkVersion="v3_5" name="WaterWars" path="addon-modules/waterwars/src/WaterWars" type="Library">
+  <Configuration name="Debug">
+    <Options>
+      <OutputPath>../../bin/</OutputPath>
+    </Options>
+  </Configuration>
+  <Configuration name="Release">
+    <Options>
+      <OutputPath>../../bin/</OutputPath>
+    </Options>
+  </Configuration>
+
+  <ReferencePath>../../../../bin/</ReferencePath>
+  <Reference name="System"/>
+  <Reference name="System.Xml"/>
+  <Reference name="System.Core"/>
+  <Reference name="System.Data"/>
+  <Reference name="System.Drawing"/>
+  <Reference name="System.ServiceModel.Web"/>
+  <Reference name="HttpServer_OpenSim.dll" path="../../../../bin/"/>
+  <Reference name="log4net.dll" path="../../../../bin/"/>
+  <Reference name="Newtonsoft.Json.Net20.dll" path="../../../../bin/"/>
+  <!-- <Reference name="NHibernate.dll" path="../../../bin/"/> -->
+  <Reference name="Nini.dll" path="../../../../bin/"/>
+  <Reference name="nunit.framework.dll" path="../../../../bin/"/>
+  <Reference name="OpenMetaverse.dll" path="../../../../bin/"/>
+  <Reference name="OpenMetaverseTypes.dll" path="../../../../bin/"/>
+  <Reference name="OpenSim.Framework"/>
+  <Reference name="OpenSim.Framework.Servers.HttpServer"/>
+  <Reference name="OpenSim.Region.CoreModules"/>
+  <Reference name="OpenSim.Region.Framework"/>
+  <Reference name="OpenSim.Services.Interfaces"/>
+  <Reference name="OpenSim.Tests.Common"/>
+
+  <Files>
+    <Match pattern="*.cs" recurse="true"/>
+    <Match path="Resources" pattern="*.*" buildAction="EmbeddedResource"/>
+  </Files>
+</Project>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" 
+                   assembly="WaterWars" 
+                   namespace="WaterWars.Models">        
+    
+    <class name="Game">
+        <id name="Uuid" type="WaterWars.Persistence.UUIDMapper, WaterWars">
+            <generator class="assigned" />
+        </id>       
+        <property name="Name"/>
+        <property name="State"/>
+    </class> 
+        
+    <class name="Player">
+        <id name="Uuid" type="WaterWars.Persistence.UUIDMapper, WaterWars">
+            <generator class="assigned" />
+        </id>       
+        <property name="Money"/>
+        <property name="WaterReceived"/>
+    </class> 
+    
+    <class name="BuyPoint">
+        <id name="Uuid" type="WaterWars.Persistence.UUIDMapper, WaterWars">
+            <generator class="assigned" />
+        </id>       
+        <property name="Name"/>
+        <property name="Position"/>
+        <property name="RegionName"/>
+        <property name="DevelopmentRightsPrice"/>
+        <property name="WaterRightsPrice"/>
+        <property name="WaterEntitlement"/>
+        <property name="WaterAvailable"/>        
+    </class>     
+            
+    <class name="AbstractGameAsset">
+        <id name="Uuid" type="WaterWars.Persistence.UUIDMapper, WaterWars">
+            <generator class="assigned" />
+        </id>
+        <discriminator column="Type" type="String"/>
+
+        <property name="Name"/>
+        <property name="MaxLevel"/>
+        <property name="MinLevel"/>
+        <property name="InitialNames"/>
+        <property name="Level"/>
+        <property name="Position"/>
+        <property name="Prices"/>
+        <property name="Revenues"/>
+        <property name="WaterUsages"/>
+        <property name="MaintenanceCosts"/>
+        <property name="WaterAllocated"/>
+        <property name="CanPartiallyAllocateWater"/>
+        <property name="TimeToLive"/>
+        
+        <subclass name="Houses" discriminator-value="HOUSES"/>
+        <subclass name="Factory" discriminator-value="FACTORY"/>
+        <subclass name="Crops" discriminator-value="CROPS"/>
+    </class>
+    
+</hibernate-mapping>

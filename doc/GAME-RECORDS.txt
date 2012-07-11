@@ -1,0 +1,20 @@
+GAME RECORDS
+
+During the game, the Water Wars region module records all the events that take
+  place to an XML file.  This is in OpenSimulator's bin/recorder directory.
+Each file has a timestamp embedded in the name, so subsequent game records will
+not overwrite earlier ones.
+
+The game records can be validated using the ww-game-record.xsd XML Schema in
+this directory.  Due to a current game bug, before validation will succeed you
+may have need to add the "http://waterwars.com/game-record" namespace to the root 
+Game element of the record, like so
+
+<Game xmlns="http://waterwars.com/game-record">
+
+A large number of events are recorded, both those pertaining to game actions
+(e.g. buying a parcel, building a factory) and the actions that players take
+while navigating the game world and communicating with other players.
+
+The XML Schema gives some idea of how this file is structured, but for a full
+understanding one will have to be familiar with how the game works.

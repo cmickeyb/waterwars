@@ -1,0 +1,12 @@
+BUILDING
+
+Water Wars is built as part of the OpenSimulator build.  To do this
+
+1) Move the entire waterwars directory into the addon-modules/ directory of your OpenSim installation.
+
+2) Re-run prebuild.sh (or prebuild.bat) in your OpenSim root directory.
+
+3) Re-build the OpenSim distribution as normal.  You should see the
+WaterWars.dll built as the last component.  The DLL ends up in addon-modules/waterwars/bin/WaterWars.dll
+
+Now follow the INSTALL.txt instructions.

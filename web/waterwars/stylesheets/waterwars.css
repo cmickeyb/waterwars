@@ -1,0 +1,21 @@
+/*
+ * WaterWars stylesheet
+ */
+
+/* Used for greying out options that aren't available */
+.greyout { color:LightGrey; }
+
+/* Used for functionality that appears in small text.  e.g. [edit] */
+.smallfeature { font-size:x-small; }
+
+/* Used for alerts when user input is not valid */
+.alert { 
+    font-size:small;
+    color:Red; 
+}
+
+body, td { font-size:0.9em; }
+p { color : maroon; }
+td { min-width:500px; }
+
+.ui-tabs .ui-tabs-hide { display: none; }

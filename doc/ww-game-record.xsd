@@ -1,0 +1,446 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ww="http://waterwars.com/game-record" targetNamespace="http://waterwars.com/game-record" elementFormDefault="qualified">
+  
+  <!-- root element -->
+  <element name="Game">
+    <complexType>
+      <sequence>
+        <element name="Stage" type="ww:configStageType"/>
+        <element name="Round" type="ww:roundType" minOccurs="1" maxOccurs="unbounded"/>
+      </sequence>
+    </complexType>
+  </element>
+
+  <!-- GENERIC -->
+  <!-- all game objects have these attributes -->
+  <attributeGroup name="nameAndIdAg">
+    <attribute name="Name" type="string"/>
+    <!-- ID is always a Guid.  This type could be restricted to that -->
+    <attribute name="ID" type="string"/>
+  </attributeGroup>
+
+  <attributeGroup name="timeStampAg">
+    <attribute name="RealTime" type="string"/>
+    <attribute name="GameTime" type="string"/>
+  </attributeGroup>
+  
+  <attributeGroup name="stageAg">
+    <attribute name="Type" type="string"/>
+    <attributeGroup ref="ww:timeStampAg"/>
+  </attributeGroup>
+
+  <!-- GAME TYPES -->
+  <attributeGroup name="assetAg">
+    <attributeGroup ref="ww:nameAndIdAg"/>
+    <attribute name="Position" type="string"/>
+  </attributeGroup>
+
+  <attributeGroup name="parcelAg">
+    <attributeGroup ref="ww:nameAndIdAg"/>
+    <attribute name="Region" type="string"/>
+    <attribute name="RegionID" type="string"/>
+    <attribute name="LocalPosition" type="string"/>
+    <attribute name="Zone" type="string"/>
+  </attributeGroup>
+
+  <complexType name="roundType">
+    <sequence>
+      <element name="Forecasts" type="ww:forecastType"/>
+      <element name="Stage" type="ww:gameStageType" minOccurs="1" maxOccurs="4"/>
+    </sequence>
+    <attribute name="Current" type="nonNegativeInteger"/>
+    <attribute name="Total" type="nonNegativeInteger"/>
+  </complexType>
+
+  <complexType name="forecastType">
+    <sequence>
+      <element name="Forecast" maxOccurs="unbounded">
+        <complexType>
+          <simpleContent>
+            <extension base="string">
+              <attribute name="Name" type="string"/>
+            </extension>
+          </simpleContent>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+ 
+  <complexType name="gameStageType">
+    <sequence>
+      <element name="Snapshot" type="ww:snapshotType"/>
+      <element name="Events" type="ww:eventsType" minOccurs="0"/>
+    </sequence>
+    <attributeGroup ref="ww:stageAg"/>
+  </complexType>
+
+  <complexType name="snapshotType">
+    <sequence>
+      <element name="Parcels" type="ww:parcelsType"/>
+      <element name="Players" type="ww:playersType"/>
+    </sequence>
+  </complexType>
+
+  <complexType name="parcelsType">
+    <sequence>
+      <element name="Parcel" maxOccurs="unbounded">
+        <complexType>
+          <sequence>
+            <element name="HasAnyOwner" type="string"/>
+            <element name="Owner" type="string"/>
+            <element name="InitialPrice" type="nonNegativeInteger"/>
+            <element name="InitialWaterRights" type="nonNegativeInteger"/>
+            <element name="ChosenUse" type="string"/>
+            <element name="Assets"/>
+          </sequence>
+          <attributeGroup ref="ww:parcelAg"/>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="playersType">
+    <sequence>
+      <element name="Player" maxOccurs="unbounded">
+        <complexType>
+          <sequence>
+            <element name="Role" type="string"/>
+            <element name="Money" type="integer"/>
+            <element name="WaterRights" type="nonNegativeInteger"/>
+            <element name="WaterRequired" type="nonNegativeInteger"/>
+            <element ref="ww:Water"/>
+            <element name="Parcels" type="nonNegativeInteger"/>
+            <element name="CostOfLiving" type="integer"/>
+            <element name="MaintenanceCosts" type="integer"/>
+          </sequence>
+          <attributeGroup ref="ww:nameAndIdAg"/>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="eventsType">
+    <choice minOccurs="0" maxOccurs="unbounded">
+      <element ref="ww:AssetBuildCompleted"/>
+      <element ref="ww:AssetBuildContinued"/>
+      <element ref="ww:AssetBuildStarted"/>
+      <element ref="ww:AssetSelected"/>
+      <element ref="ww:AssetSoldToEconomy"/>
+      <element ref="ww:AssetUpgraded"/>
+      <element ref="ww:Chat"/>
+      <element ref="ww:IM"/>
+      <element ref="ww:OperatingRevenueReceived"/>
+      <element ref="ww:ParcelSold"/>
+      <element ref="ww:WaterAllocated"/>
+      <element ref="ww:WaterGenerated"/>
+      <element ref="ww:WaterLeased"/>
+      <element ref="ww:WaterRightsSold"/>
+      <element ref="ww:WaterUsed"/>
+      <!-- This occurs if the game is reset during a turn.  It's actually a bug - the current stage should be closed first -->
+      <element name="Stage" type="ww:gameStageType"/>
+    </choice>
+  </complexType>
+
+  <element name="AssetBuildCompleted">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <element ref="ww:ParcelRef"/>
+        <element ref="ww:Asset"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="AssetBuildContinued">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <element ref="ww:ParcelRef"/>
+        <element ref="ww:Asset"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="AssetBuildStarted">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <element ref="ww:ParcelRef"/>
+        <element ref="ww:Asset"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="AssetSelected">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <choice minOccurs="1" maxOccurs="1">
+          <element ref="ww:AssetRef"/>
+          <element ref="ww:ParcelRef"/>
+        </choice>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+    
+  <element name="AssetSoldToEconomy">
+    <complexType>
+      <sequence>
+        <element ref="ww:AssetRef"/>
+        <element ref="ww:Seller"/>
+        <element ref="ww:Price"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+    
+  <element name="ParcelSold">
+    <complexType>
+      <sequence>
+        <element ref="ww:ParcelRef"/>
+        <element ref="ww:Buyer"/>
+        <element ref="ww:Seller"/>
+        <element ref="ww:Price"/>
+        <element name="WaterRights" type="integer"/>
+        <element ref="ww:Succeeded"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+    
+  <element name="AssetUpgraded">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <element name="OldLevel" type="positiveInteger"/>
+        <element ref="ww:Price"/>
+        <element ref="ww:Asset"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="Chat">
+    <complexType>
+      <sequence>
+        <element name="Speaker" type="ww:wrappedPlayerRefType"/>
+        <element name="HeardBy">
+          <complexType>
+            <sequence>
+              <element ref="ww:PlayerRef" minOccurs="1" maxOccurs="unbounded"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="Message" type="string"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="IM">
+    <complexType>
+      <sequence>
+        <element name="From" type="ww:wrappedPlayerRefType"/>
+        <element name="To">
+          <complexType>
+            <choice minOccurs="1" maxOccurs="1">
+              <element ref="ww:GroupRef"/>
+              <element ref="ww:PlayerRef"/>
+            </choice>
+          </complexType>
+        </element>
+        <element name="Message" type="string"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="OperatingRevenueReceived">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <element name="OperatingRevenue" type="integer"/>
+        <element name="OperatingCosts" type="integer"/>
+        <element name="CostOfLiving" type="integer"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="WaterAllocated">
+    <complexType>
+      <sequence>
+        <element ref="ww:PlayerRef"/>
+        <element name="Water" type="integer"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="WaterGenerated">
+    <complexType>
+      <sequence>
+        <element name="Water" type="integer"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+    
+  <element name="WaterLeased">
+    <complexType>
+      <sequence>
+        <element ref="ww:Buyer"/>
+        <element ref="ww:Seller"/>
+        <element ref="ww:Water"/>
+        <element ref="ww:Price"/>
+        <element ref="ww:Succeeded"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+    
+  <element name="WaterRightsSold">
+    <complexType>
+      <sequence>
+        <element ref="ww:Buyer"/>
+        <element ref="ww:Seller"/>
+        <element ref="ww:Water"/>
+        <element ref="ww:Price"/>
+        <element ref="ww:Succeeded"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+    
+  <element name="WaterUsed">
+    <complexType>
+      <sequence>
+        <element ref="ww:AssetRef"/>
+        <element ref="ww:PlayerRef"/>
+        <element ref="ww:Water"/>
+      </sequence>
+      <attributeGroup ref="ww:timeStampAg"/>
+    </complexType>
+  </element>
+
+  <element name="Buyer" type="ww:wrappedPlayerRefType"/>
+  <element name="Seller" type="ww:wrappedPlayerRefType"/>
+  <element name="Price" type="integer"/>
+  <element name="Water" type="nonNegativeInteger"/>
+  <element name="Succeeded" type="string"/>
+    
+  <element name="Asset">
+    <complexType>
+      <sequence>
+        <element name="Level" type="positiveInteger"/>
+        <element name="MinLevel" type="positiveInteger"/>
+        <element name="MaxLevel" type="positiveInteger"/>
+        <element ref="ww:Price"/>
+        <element name="PricePerBuildStep" type="integer"/>
+        <element name="StepsBuilt" type="positiveInteger"/>
+        <element name="StepsRequired" type="positiveInteger"/>
+        <element name="StepBuiltThisTurn" type="string"/>
+        <element name="IsMultiStepBuild" type="string"/>
+        <element name="IsBuilt" type="string"/>
+        <element name="IsDependentOnWaterToExist" type="string"/>
+        <element name="IsSoldToEconomy" type="string"/>
+        <element name="MarketPrice" type="nonNegativeInteger"/>
+        <element name="NormalOperatingRevenue" type="integer"/>
+        <element name="OperatingRevenue" type="integer"/>
+        <element name="NominalMaximumProfitThisTurn" type="integer"/>
+        <element name="Profit" type="integer"/>
+        <element name="WaterUsage" type="integer"/>
+        <element name="WaterAllocated" type="integer"/>
+        <element name="MaintenanceCost" type="integer"/>
+        <element name="AccruedMaintenanceCost" type="integer"/>
+        <element name="TimeToLive" type="integer"/>
+        <element name="CanBeAllocatedWater" type="string"/>
+        <element name="CanBePartiallyAllocatedWater" type="string"/>
+        <element name="CanBeSoldToEconomy" type="string"/>
+        <element name="CanUpgradeInPrinciple" type="string"/>
+        <element name="CanUpgrade" type="string"/>
+      </sequence>
+      <attributeGroup ref="ww:assetAg"/>
+    </complexType>
+  </element>
+
+  <element name="AssetRef">
+    <complexType>
+      <attributeGroup ref="ww:assetAg"/>
+    </complexType>
+  </element>
+
+  <element name="ParcelRef">
+    <complexType>
+      <attributeGroup ref="ww:parcelAg"/>
+    </complexType>
+  </element>
+
+  <element name="PlayerRef">
+    <complexType>
+      <attributeGroup ref="ww:nameAndIdAg"/>
+    </complexType>
+  </element>
+
+  <element name="GroupRef">
+    <complexType>
+      <attribute name="name" type="string"/>
+    </complexType>
+  </element>
+
+  <complexType name="wrappedPlayerRefType">
+    <sequence>
+      <element ref="ww:PlayerRef"/>
+    </sequence>
+  </complexType>
+
+  <!-- CONFIGURATION TYPES -->
+  <complexType name="configStageType">
+    <sequence>
+      <element name="Config">
+        <complexType>
+          <sequence>
+            <element name="Nini" type="ww:niniType"/>
+            <element name="Regions" type="ww:regionsType"/>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attributeGroup ref="ww:stageAg"/>
+  </complexType>
+
+  <complexType name="niniType">
+    <sequence>
+      <element name="Section" maxOccurs="unbounded">
+        <complexType>
+          <sequence>
+            <element name="Key" maxOccurs="unbounded">
+              <complexType>
+                <attribute name="Name" type="string"/>
+                <attribute name="Value" type="string"/>
+              </complexType>
+            </element>
+          </sequence>
+          <attribute name="Name" type="string"/>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="regionsType">
+    <sequence>
+      <element name="Region" maxOccurs="unbounded">
+        <complexType>
+          <attribute name="Name" type="string"/>
+          <attribute name="X" type="nonNegativeInteger"/>
+          <attribute name="Y" type="nonNegativeInteger"/>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+</schema>

@@ -1,0 +1,283 @@
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="stylesheets/custom-jquery-theme/jquery-ui.css"/>
+<!-- <link type="text/css" rel="stylesheet" href="stylesheets/ui-lightness/jquery-ui.css"/> -->
+<link type="text/css" rel="stylesheet" media="screen" href="stylesheets/atooltip.css"/>
+<link type="text/css" rel="stylesheet" href="stylesheets/waterwars.css"/>
+
+<script type="text/javascript" src="js/lib/date.js"></script>
+<script type="text/javascript" src="js/lib/jquery.js"></script>
+<script type="text/javascript" src="js/lib/jquery-ui.js"></script>
+<script type="text/javascript" src="js/lib/json2.js"></script>
+<script type="text/javascript" src="js/lib/atooltip.jquery.js"></script>
+<script type="text/javascript" src="js/lib/jquery.query.js"></script>
+<script type="text/javascript" src="js/lib/utils.js"></script>
+<script type="text/javascript" src="js/waterwars/waterwars.js"></script>
+<script type="text/javascript" src="js/waterwars/buypoint.js"></script>
+<script type="text/javascript" src="js/waterwars/economy.js"></script>
+<script type="text/javascript" src="js/waterwars/field.js"></script>
+<script type="text/javascript" src="js/waterwars/gameasset.js"></script>
+<script type="text/javascript" src="js/waterwars/overview.js"></script>
+<script type="text/javascript" src="js/waterwars/pandl.js"></script>
+<script type="text/javascript" src="js/waterwars/water.js"></script>
+
+</head>
+
+<body>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#view-tab" id='view'><span title="In this tab you can see information about game objects and perform actions on them.">View</span></a></li>
+    <li><a href="#water-tab" id='wat'><span title="In this tab you can see and perform actions on your water entitlement pool and the current water you have available.">Water</span></a></li>
+    <!-- <li><a href="#news-tab"><span title="In the news tab you can see a record of game events">News</span></a></li> -->
+    <li><a href="#economy-tab" id="econ"><span title="In this tab you can see economic forecasts for the next water phase">Economy</span></a></li>
+    <li><a href="#pandl-tab" id='pandl'><span title="In this tab you can see your projected profit and loss for this turn">P & L</span></a><li>
+    <li><a href="#overview-tab" id='ovr'><span title="In this tab you can see summary information about yourself and other players.">Players</span></a></li>
+  </ul>
+
+  <div id="view-tab">
+    <div id="main-view">
+        <table>
+          <col width="200px"/>
+          <col/>
+          <tr>
+            <td id="name-label" title="The name of the game object selected.">Name:</td>
+            <td>
+              <b id="name"></b>
+              <input type="text" id="name-edit-box" tabindex=1 style="display:none"/>
+            </td>
+            <td>
+              <input type="button" value="Edit" id="name-edit-button" style="display:none" title="Edit the name of this parcel"/>
+              <input type="button" value="Save" id="name-save-button" style="display:none" title="Save the entered name."/>
+              <input type="button" value="Cancel" id="name-cancel-button" style="display:none" title="Cancel the name change."/>
+            </td>
+          </tr>
+          <tr>
+            <td id="type-label" title="The type of the game object selected.">Type:</td>
+            <td><div id="type">Initializing</div></td>
+          </tr>
+          
+          <tbody id="parcel-info">
+            <tr>
+              <td title="The person who owns the development rights to this parcel.">Development rights owner:</td>
+              <td><div id="parcel-development-rights-owner">Initializing</div></td>
+            </tr>
+          </tbody>
+          <tbody id="parcel-info-unsold">
+            <tr>
+              <td title="When this parcel is first purchased, these water rights are added to the buyer's pool of water rights.">Transferable water rights:</td>
+              <td><div id="parcel-water-entitlement"/>Initializing</td>
+            </tr>
+            <tr>
+              <td title="The price of this parcel.">Price</td>
+              <td><div id="parcel-price"/></td>
+            </tr>           
+          </tbody>          
+          
+          <tbody id="field-info">
+            <tr>
+              <td title="The owner of this field.">Owner:</td>
+              <td><div id="field-owner">Initializing</div></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td></td>
+            </tr>
+          </div>
+          
+          <tbody id="asset-info">
+            <tr>
+              <td title="The owner of this asset.">Owner:</td>
+              <td><div id="asset-owner">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The status of this build.">Build status:</td>
+              <td><div id="asset-build-status">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The water that must be allocated to this asset for it to be productive in the water phase.">Water usage:</td>
+              <td><div id="asset-water-usage">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The water currently allocated to this asset.  This is only relevant during the water phase.">Water allocated:</td>
+              <td><div id="asset-water-allocated">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The revenue earned that can be earned from this asset in this round if it has a full water allocation the end of the water phase.">Achievable revenue:</td>
+              <td><div id="asset-revenue">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The projected revenue at the current level of water allocation">Actual revenue:</td>
+              <td><div id="projected-asset-revenue">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The maintenance requirements of this asset, charged at the end of the water phase.  For factories and houses, money has to be paid.  For grapes, this is a water cost.  If this water is not allocated, the perennial crop is permanently lost.">Upkeep:</td>
+              <td><div id="asset-maintenance-cost">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The profit from this asset at the current level of water allocation.  For factories this does not include the build cost as this is treated as a capital cost.">Profit/loss:</td>
+              <td><div id="asset-nominal-maximum-profit">Initializing</div></td>
+            </tr>
+          </tbody>
+          
+          <tbody id="asset-sellable-info">
+            <tr>
+              <td title="The owner of this asset.">Owner:</td>
+              <td><div id="asset-sellable-owner">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="The status of this build.">Build status:</td>
+              <td><div id="asset-sellable-build-status">Initializing</div></td>
+            </tr>            
+            <tr>
+              <td title="The water rights that must be transferred along with this asset when it is sold to the economy.">Water rights required to sell:</td>
+              <td><div id="asset-sellable-water-rights-required">Initializing</div></td>
+            </tr>
+            <tr>  
+              <td title="The current market value for a completed unit.">Market value for completed unit:</td>
+              <td><div id="asset-sellable-market-price">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="How much this asset cost to build.">Construction cost:</td>
+              <td><div id="asset-sellable-construction-cost">Initializing</div></td>
+            </tr>
+            <tr>
+              <td title="How much has been spent on upkeep of this asset so far.">Accrued upkeep:</td>
+              <td><div id="asset-sellable-maintenance-cost">Initializing</div></td>
+            </tr>            
+            <tr>
+              <td title="The current maximum profit from this asset.  As this is an asset created for sale, it includes the cost of building.  The profit is nominal because the cost of acquiring water is not counted.">Profit/loss if sold:</td>
+              <td><div id="asset-sellable-nominal-maximum-profit">Initializing</div></td>
+            </tr>
+            <tr><td>&nbsp;</td><td/></tr>
+          </tbody>
+          
+        </table>
+
+      <!-- <tt><div id="debug">Nothing here</div></tt> -->
+
+        <input id="buy-rights-button" type="button" value="Buy Rights" title="Buy development and water rights on this unowned parcel."/>
+        <input id="sell-rights-button" type="button" value="Sell Development Rights" title="Sell the development rights to this parcel."/>
+        <input id="buy-assets-button" type="button" value="Build" title="Build a game asset on this field."/>
+        <input id="continue-build-asset-button" type="button" value="Continue Build" title="Continue the build of the game asset selected."/>
+        <input id="sell-asset-to-economy-button" type="button" value="Sell To Market" title="Sell this game asset to the market."/>
+        <input id="remove-asset-button" type="button" value="Remove" title="Remove this game asset.  This will not give you any revenue."/>
+        <input id="upgrade-asset-button" type="button" value="Upgrade" title="Upgrade this game asset to a higher level."/>
+        <br/>
+        <input id="allocate-water-button" type="button" value="Allocate Water" title="Allocate water to this game asset for this turn."/>
+        <input id="allocate-amount"/>
+        <select id='allocate-amount-dropdown' title="Amount of water to allocate.">
+          <option>None</option>
+          <option>Full</option>
+        </select>       
+        <input id="undo-allocate-water-button" type="button" value="Undo Water Allocation" title="Undo the previous water allocation to this asset."/>
+        <div id="view-alert" class='alert'></div>
+    </div>
+
+    <div id="sell-rights-view" style="display:none">
+      <p><b>Sell development rights</b></p>
+      <!-- generated dynamically -->
+      <div id="sell-rights-form"></div>
+    </div>
+
+    <div id="upgrade-asset-view" style="display:none">
+      <p><b>Choose asset</b></p>
+      <!-- generated dynamically -->
+      <div id="upgrade-asset-form"></div>
+    </div>
+
+    <div id="buy-assets-view" style="display:none">
+      <p><b>Choose asset</b></p>
+      <!-- generated dynamically -->
+      <div id="buy-assets-form"></div>
+    </div>
+
+  </div>
+
+  <div id="water-tab">
+    <div id="water-view">
+      <table>
+        <tr><td title="Your pooled water rights.  As long as this isn't a drought year you will receive this amount of water at the start of the water phase.">Water rights owned:</td><td><div id="water-entitlement">Initializing</div></td></tr>
+        <tr><td title="The total water needed to satisfy all your farms or factories (if a farmer or a developer), or the amount required to sell off your completed housing stock (if you're a developer).">Water required for assets:</td><td><div id="water-required">Initializing</div></td></tr>
+        <tr><td title="The amount of water currently available to you to allocate to game assets or lease to other players.  Water is only available during the water phase.">Water available for allocation: </td><td><div id="water-available">Initializing</div></td></tr>
+        <tr><td title="The forecast for the next water phase.  This can either be 'normal' (all water rights should be fulfilled), 'below normal' (only a proportion of rights will be fulfilled) or 'drought' (a very small proportion of rights will be fulfilled)">Water availability forecast: </td><td><div id="water-forecast">Initializing</div></td></tr>
+      </table>
+      <form id="water-buttons-form">
+        <table>
+          <tr>
+            <td><input id="wat-sell-rights-button" type="button" value="Offer Water Rights" title="Sell some of your pooled water rights to another player.  This is a permanent transfer."/></td>
+            <td><input id="wat-sell-water-button" type="button" value="Offer Water Lease" title="Lease some of your currently available water to another player.  The lease only applies for this turn."/></td>
+          </tr>
+          <tr>
+            <td><input id="wat-request-rights-button" type="button" value="Request Water Rights" title="Notify other players that you would like to buy water rights."/></td>
+            <td><input id="wat-request-water-button" type="button" value="Request Water Lease" title="Notify other players that you would like to lease water."/></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <div id="sell-water-view" style="display:none">
+      <p><b>Offer water lease</b></p>
+      <!-- generated dynamically -->
+      <div id="sell-water-form"></div>
+    </div>
+
+    <div id="sell-water-rights-view" style="display:none">
+      <p><b>Offer water rights</b></p>
+      <!-- generated dynamically -->
+      <div id="sell-water-rights-form"></div>
+    </div>
+    
+    <div id="request-water-view" style="display:none">
+      <p><b>Request water lease</b></p>
+      <!-- generated dynamically -->
+      <div id="request-water-form"></div>
+    </div>
+
+    <div id="request-water-rights-view" style="display:none">
+      <p><b>Request water rights</b></p>
+      <!-- generated dynamically -->
+      <div id="request-water-rights-form"></div>
+    </div>    
+  </div>
+  
+  <div id="economy-tab">
+    <div id="economy-view">
+      <table>
+        <tr><td title="The forecast demand for factory output demand in the next water phase.">Factory output demand forecast: </td><td><div id="factory-output-demand-forecast">Initializing</div></td></tr>
+        <tr><td title="The forecast demand for single family homes in the next water phase.">Single family homes demand forecast: </td><td><div id="houses-level-1-demand-forecast">Initializing</div></td></tr>
+        <tr><td title="The forecast demand for multi family homes in the next water phase.">Multi family homes demand forecast: </td><td><div id="houses-level-2-demand-forecast">Initializing</div></td></tr>
+        <tr><td title="The forecast demand for estate homes in the next water phase.">Estate homes demand forecast: </td><td><div id="houses-level-3-demand-forecast">Initializing</div></td></tr>        
+      </table>
+    </div>
+  </div>
+
+  <div id="news-tab">
+    <div id="news"></div>
+  </div>
+ 
+  <div id="pandl-tab">
+    <div id="pandl-view"></div>
+  </div>
+
+  <div id="overview-tab">
+      <div id="overview-view"><!-- data generated and inserted dynamically --></div>
+      <form><p align="right"><input id='overview-refresh-button' type='button' value='Refresh'/></p></form>    
+  </div>
+</div>
+
+</body>
+</html>

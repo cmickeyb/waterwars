@@ -1,0 +1,11 @@
+PLAYING
+
+Starting, stopping and resetting the game is controlled via the 'capitol
+building', a roundhouse situated in RioGrande 23.  You can get further
+instructions for playing itself by clicking the building and then clicking the
+"Help" button in the menu.
+
+Game parameters are configured in-world via the "Game Configuration" notecard in
+the roundhouse.  This directory also contains a spreadsheet
+(game-parameters.xls) to do some very simple outcome modelling when different
+game parameters are selected.
