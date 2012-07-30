@@ -32,11 +32,10 @@
 
 using System;
 using System.IO;
-using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
+//using NHibernate;
+//using NHibernate.Cfg;
+//using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -71,7 +70,7 @@ namespace WaterWars.Persistence.Tests
 //        //[Test]
 //        public void TestSerialization()
 //        {
-//            TestHelper.InMethod();
+//            TestHelpers.InMethod();
 //            
 //            File.Delete(Path.Combine(WaterWarsConstants.STATE_PATH, WaterWarsConstants.STATE_FILE_NAME));
 //            
@@ -85,7 +84,7 @@ namespace WaterWars.Persistence.Tests
 //        //[Test]
 //        public void TestBuyHousesPersistent()
 //        {
-//            TestHelper.InMethod();
+//            TestHelpers.InMethod();
 //            
 //            AddBuyPoints();
 //            AddPlayers(Developer.Singleton);
@@ -108,7 +107,7 @@ namespace WaterWars.Persistence.Tests
 //        //[Test]
 //        public void TestUpgradeHousesPersistent()
 //        {
-//            TestHelper.InMethod();
+//            TestHelpers.InMethod();
 //            
 //            AddBuyPoints();
 //            AddPlayers(Developer.Singleton);

@@ -32,7 +32,6 @@
 
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -58,7 +57,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationBelowEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             Player p1 = new Player("Alfred", UUID.Parse("00000000-0000-0000-0000-000000000001")) { WaterEntitlement = 500 };

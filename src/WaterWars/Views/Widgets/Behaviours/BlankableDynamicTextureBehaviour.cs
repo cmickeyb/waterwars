@@ -89,7 +89,7 @@ namespace WaterWars.Views.Widgets.Behaviours
                         }
                     }
                     tex.DefaultTexture.TextureID = EnabledTexture;
-                    Button.Part.UpdateTexture(tex);                   
+                    Button.Part.UpdateTextureEntry(tex);
                 }
             }
             else
@@ -103,7 +103,7 @@ namespace WaterWars.Views.Widgets.Behaviours
                     }
                 }
                 tex.DefaultTexture.TextureID = DisabledTexture;
-                Button.Part.UpdateTexture(tex);
+                Button.Part.UpdateTextureEntry(tex);
             }            
         }        
     }

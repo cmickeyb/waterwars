@@ -36,7 +36,6 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;

@@ -261,15 +261,15 @@ namespace WaterWars.Views.Interactions
                 }
                 
                 uint attachmentPoint = (uint)AttachmentPoint.HUDTop;
-                ScenePresence so = scene.GetScenePresence(client.AgentId);                
-                List<SceneObjectGroup> existingAttachments = so.GetAttachments(attachmentPoint);
+                ScenePresence sp = scene.GetScenePresence(client.AgentId);
+                List<SceneObjectGroup> existingAttachments = sp.GetAttachments(attachmentPoint);
                 
                 if (existingAttachments.Count == 0)
                 {                
                     IAttachmentsModule module = client.Scene.RequestModuleInterface<IAttachmentsModule>();
-                    UUID sceneObjectId 
-                        = module.RezSingleAttachmentFromInventory(client, new UUID(im.imSessionID), (uint)AttachmentPoint.HUDTop);                
-                    SceneObjectGroup sog = scene.GetSceneObjectPart(sceneObjectId).ParentGroup;
+                    SceneObjectGroup sog
+                        = module.RezSingleAttachmentFromInventory(
+                            sp, new UUID(im.imSessionID), (uint)AttachmentPoint.HUDTop);
                     
                     // A tempoary messy solution to an occasional race where the attached hud sometimes ends up positioned
                     // on the avatar itself and does not show up as attached within inventory.

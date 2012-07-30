@@ -32,11 +32,10 @@
 
 using System;
 using System.IO;
-using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
+//using NHibernate;
+//using NHibernate.Cfg;
+//using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -52,7 +51,7 @@ namespace WaterWars.Persistence.Tests
 //        //[Test]
 //        public void TestGenerateSchema()
 //        {
-//            TestHelper.InMethod();            
+//            TestHelpers.InMethod();            
 //            log4net.Config.XmlConfigurator.Configure();
 //            
 //            var cfg = new Configuration();
@@ -64,7 +63,7 @@ namespace WaterWars.Persistence.Tests
 //        [Test]
 //        public void TestSimpleAddHouses()
 //        {
-//            TestHelper.InMethod();            
+//            TestHelpers.InMethod();            
 //            //log4net.Config.XmlConfigurator.Configure();
 //            
 //            string housesName = "houses1";

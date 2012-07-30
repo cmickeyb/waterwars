@@ -35,9 +35,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Tool.hbm2ddl;
+//using NHibernate;
+//using NHibernate.Cfg;
+//using NHibernate.Tool.hbm2ddl;
 using WaterWars;
 using WaterWars.Models;
 

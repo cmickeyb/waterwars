@@ -109,7 +109,7 @@ namespace WaterWars.Views
             SceneObjectGroup so = m_itemStoreView.RootPart.Inventory.GetRezReadySceneObject(item);
             so.UUID = gm.Uuid;            
             so.OwnerID = ownerUuid;
-            m_scene.AddNewSceneObject(so, true, pos, so.Rotation, Vector3.Zero);            
+            m_scene.AddNewSceneObject(so, true, pos, so.GroupRotation, Vector3.Zero);            
             
             return so;
         }

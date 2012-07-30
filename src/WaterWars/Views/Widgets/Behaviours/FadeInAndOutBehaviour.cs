@@ -68,7 +68,7 @@ namespace WaterWars.Views.Widgets.Behaviours
                 color.A = 0.9f;
                 tex.DefaultTexture.RGBA = color;
                 
-                Button.Part.UpdateTexture(tex);                
+                Button.Part.UpdateTextureEntry(tex);
             }
             else
             {
@@ -87,7 +87,7 @@ namespace WaterWars.Views.Widgets.Behaviours
                 color.A = 0.1f;
                 tex.DefaultTexture.RGBA = color;
                 
-                Button.Part.UpdateTexture(tex);                    
+                Button.Part.UpdateTextureEntry(tex);                    
             }
         }
     }

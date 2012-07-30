@@ -33,7 +33,6 @@
 using System;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -60,7 +59,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestNegativeBalance()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -153,7 +152,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestLandOwningRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -180,7 +179,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestUnwateredAssetRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -199,7 +198,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestWateredAssetRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -223,7 +222,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestPartiallyWateredAssetRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -244,7 +243,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestProjectedHouseProfit()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -267,7 +266,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestHouseOperatingRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -297,7 +296,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestCostOfLiving()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -317,7 +316,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestOneTurnMaximumCropsProfit()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -337,7 +336,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestPerennialMaximumCropsProfit()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();

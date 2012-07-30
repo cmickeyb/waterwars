@@ -33,7 +33,6 @@
 using System;
 using System.Linq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -51,7 +50,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestPlayerActions()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Developer.Singleton, Farmer.Singleton);
@@ -78,7 +77,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestFieldActions()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Developer.Singleton, Manufacturer.Singleton);
@@ -97,7 +96,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestHousesActions()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Developer.Singleton, Manufacturer.Singleton);
@@ -144,7 +143,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestFactoryActions()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton, Developer.Singleton);                                    
@@ -175,7 +174,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestBuyPointActions()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();

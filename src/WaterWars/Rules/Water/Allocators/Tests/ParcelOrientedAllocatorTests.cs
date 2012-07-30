@@ -33,7 +33,6 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -47,7 +46,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestExactWaterOnParcel()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -74,7 +73,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestExtraWaterOnParcel()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -101,7 +100,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestEnoughWaterWithAnotherParcel()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -131,7 +130,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestEnoughWaterWithMultipleOtherParcels()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -167,7 +166,7 @@ namespace WaterWars.Rules.Allocators.Tests
         /// </summary>
         public void TestAssetParcelWaterRightsNotOwned()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -200,7 +199,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestNotEnoughWaterOnParcel()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -237,7 +236,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestNotEnoughWaterWithAnotherParcel()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -277,7 +276,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestUndoOwnsAssetParcelWaterRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -300,7 +299,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestUndoOwnsOtherParcelWaterRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();
@@ -330,7 +329,7 @@ namespace WaterWars.Rules.Allocators.Tests
 //        [Test]
         public void TestUndoPartial()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             ParcelOrientedAllocator allocator = new ParcelOrientedAllocator();

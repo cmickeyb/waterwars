@@ -34,7 +34,6 @@ using System;
 using System.Linq;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -55,7 +54,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestRegisterBuyPoints()
         {
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
 
             AddBuyPoints();
             
@@ -65,7 +64,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestAddPlayers()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddPlayers();
             StartGame();
@@ -80,7 +79,7 @@ namespace WaterWars.Tests
         /// </summary>
         public void TestGameEnd()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 
             Assert.That(m_controller.State is RegistrationState);
             
@@ -98,7 +97,7 @@ namespace WaterWars.Tests
 		[Test]
 		public void TestChangeBuyPointName()
 		{
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -116,7 +115,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestCropExpiry()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Farmer.Singleton, Farmer.Singleton);
@@ -147,7 +146,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestWaterDependentCropBehaviour()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Farmer.Singleton);
@@ -179,7 +178,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestPerTurnPlayerValues()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Farmer.Singleton, Developer.Singleton);
@@ -233,7 +232,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestPerTurnBuildRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Developer.Singleton);

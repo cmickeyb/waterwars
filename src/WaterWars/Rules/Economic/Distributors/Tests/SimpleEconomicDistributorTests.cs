@@ -33,7 +33,6 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -56,7 +55,7 @@ namespace WaterWars.Rules.Economic.Distributors.Tests
         [Test]
         public void TestDistribution()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             IDictionary<AbstractGameAssetType, double[]> economicConditions 

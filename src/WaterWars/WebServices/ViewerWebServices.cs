@@ -38,6 +38,7 @@ using log4net;
 using Newtonsoft.Json;
 using OpenMetaverse;
 using OpenSim.Framework;
+using OpenSim.Framework.Servers;
 using OpenSim.Framework.Servers.HttpServer;
 using WaterWars;
 using WaterWars.Models;

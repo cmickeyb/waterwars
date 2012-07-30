@@ -33,7 +33,6 @@
 using System;
 using System.IO;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Services.Interfaces;
 using OpenSim.Tests.Common;
@@ -93,7 +92,7 @@ namespace WaterWars.Persistence.Recorder.Tests
         [Test]
         public void TestRecorder()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton, Developer.Singleton);

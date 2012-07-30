@@ -32,7 +32,6 @@
 
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -45,7 +44,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestChosenAssetType()
         { 
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
             
             BuyPoint bp1 = new BuyPoint(UUID.Zero);
             Assert.That(bp1.ChosenGameAssetTemplate, Is.EqualTo(AbstractGameAsset.None));
@@ -121,7 +120,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestDevelopmentRightsOwner()
         {
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
             
             BuyPoint bp1 = new BuyPoint(UUID.Zero);
             Player p1 = new Player("PLAYER 1", UUID.Parse("00000000-0000-0000-0000-000000000001"));
@@ -147,7 +146,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestWaterRightsOwner()
         {
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
             
             BuyPoint bp1 = new BuyPoint(UUID.Zero);
             Player p1 = new Player("PLAYER 1", UUID.Parse("00000000-0000-0000-0000-000000000001"));

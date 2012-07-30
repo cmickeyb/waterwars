@@ -151,7 +151,7 @@ namespace WaterWars
         {
             m_log.InfoFormat("[WATER WARS]: Processing OnMakeRootAgent for {0}", sp.Name);
             
-            List<SceneObjectGroup> attachments = sp.Attachments;
+            List<SceneObjectGroup> attachments = sp.GetAttachments();
 
             lock (attachments)
             {

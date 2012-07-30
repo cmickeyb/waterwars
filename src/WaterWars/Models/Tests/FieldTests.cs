@@ -32,7 +32,6 @@
 
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -45,7 +44,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestBuyPoint()
         {
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
                         
             // The field class has already constructed Field.None, which conceptually belongs to BuyPoint.None
             Assert.That(BuyPoint.None.Fields.Count, Is.EqualTo(1));

@@ -33,7 +33,6 @@
 using System;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -87,7 +86,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSellMoreWaterThanAvailable()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddPlayers(Farmer.Singleton, Manufacturer.Singleton);
@@ -128,7 +127,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestWaterReceiptAndExpiry()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -156,7 +155,7 @@ namespace WaterWars.Tests
 //        [Test]
 //        public void TestSellWaterFromParcel()
 //        {
-//            TestHelper.InMethod();
+//            TestHelpers.InMethod();
 //            //log4net.Config.XmlConfigurator.Configure();
 //
 //            AddBuyPoints();
@@ -201,7 +200,7 @@ namespace WaterWars.Tests
         /// </summary>
 //        public void TestSellMoreWaterThanAvailableOnParcel()
 //        {
-//            TestHelper.InMethod();
+//            TestHelpers.InMethod();
 //            //log4net.Config.XmlConfigurator.Configure();
 //
 //            AddBuyPoints();
@@ -256,7 +255,7 @@ namespace WaterWars.Tests
         /// </summary>
 //        public void TestSellWaterBuyerHasNoRights()
 //        {
-//            TestHelper.InMethod();
+//            TestHelpers.InMethod();
 //            //log4net.Config.XmlConfigurator.Configure();
 //
 //            AddBuyPoints();
@@ -302,7 +301,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSellMoreWaterRightsThanAvailable()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -339,7 +338,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestUseWater()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();                        
             
             AddBuyPoints();
@@ -396,7 +395,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestUseNegativeWater()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -427,7 +426,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestUseMoreWaterThanAvailable()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();

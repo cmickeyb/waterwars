@@ -32,7 +32,6 @@
 
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -45,7 +44,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestWaterAllocationToFullOnlyAsset()
         {
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
             
             Houses h1 
                 = new Houses("houses1", UUID.Parse("00000000-0000-0000-0000-000000001001"), Vector3.Zero)
@@ -114,7 +113,7 @@ namespace WaterWars.Models.Tests
         [Test]
         public void TestWaterAllocationToPartialOkayAsset()
         {
-            TestHelper.InMethod();            
+            TestHelpers.InMethod();            
             
             Factory f1 
                 = new Factory("factory1", UUID.Parse("00000000-0000-0000-0000-000000001001"), Vector3.Zero)

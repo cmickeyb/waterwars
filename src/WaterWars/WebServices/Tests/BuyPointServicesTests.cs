@@ -37,7 +37,6 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -61,7 +60,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestChangeName()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -89,7 +88,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestBuildAsset()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -121,7 +120,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestContinueBuildAsset()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -150,7 +149,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestAllocateWater()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -188,7 +187,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestUndoAllocateWater()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton, Developer.Singleton);
@@ -219,7 +218,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestUpgradeAsset()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -245,7 +244,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestSellAsset()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -281,7 +280,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestRemoveAsset()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -306,7 +305,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestBuyRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -330,7 +329,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestSellOneRight()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -362,7 +361,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestSellCombinedRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();

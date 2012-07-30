@@ -32,7 +32,6 @@
 
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -59,7 +58,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestOneTierUnderAllocation()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             int water = 700;
             
@@ -99,7 +98,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestOneTierOverAllocation()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             int water = 5000;
             
@@ -139,7 +138,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestMultiTiersUnderAllocation()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             int water = 2600;

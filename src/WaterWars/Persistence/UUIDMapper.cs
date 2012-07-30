@@ -34,8 +34,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using NHibernate;
-using NHibernate.UserTypes;
+//using NHibernate;
+//using NHibernate.UserTypes;
 using OpenMetaverse;
 
 namespace WaterWars.Persistence

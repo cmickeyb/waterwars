@@ -32,7 +32,6 @@
 
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -58,7 +57,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationBelowEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             int parcelWaterEntitlement = 1000;
@@ -102,7 +101,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationExactlyEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             int parcelWaterEntitlement = 1000;
@@ -146,7 +145,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationAboveEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             int parcelWaterEntitlement = 1000;

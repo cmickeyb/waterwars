@@ -37,6 +37,7 @@ using System.Reflection;
 using log4net;
 using Newtonsoft.Json;
 using OpenMetaverse;
+using OpenSim.Framework;
 using OpenSim.Region.Framework.Interfaces;
 
 namespace WaterWars.Models

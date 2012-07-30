@@ -33,7 +33,6 @@
 using System;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -58,7 +57,7 @@ namespace WaterWars.Config.Tests
         [Test]
         public void TestCropConfigLoading()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddPlayers();
             StartGame();
@@ -71,7 +70,7 @@ namespace WaterWars.Config.Tests
         [Test]
         public void TestZoneLoading()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddPlayers();
             AddBuyPoints();

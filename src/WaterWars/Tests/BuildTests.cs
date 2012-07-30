@@ -33,7 +33,6 @@
 using System;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -57,7 +56,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestBuyLandRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -86,7 +85,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestBuyCrops()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Farmer.Singleton, Developer.Singleton);
@@ -117,7 +116,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestBuildHouses()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Developer.Singleton, Manufacturer.Singleton);
@@ -171,7 +170,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestPartialBuildHouses()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Developer.Singleton, Manufacturer.Singleton);
@@ -204,7 +203,7 @@ namespace WaterWars.Tests
         /// </remarks>
         public void TestBuildFactories()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton);
@@ -220,7 +219,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestRemoveHouse()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -241,7 +240,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSellHouseToEconomy()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -279,7 +278,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestUpgradeAsset()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton, Farmer.Singleton);
@@ -319,7 +318,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSellDevelopmentRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -380,7 +379,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSellDevelopmentRightsAlreadyEconomyOwnership()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -411,7 +410,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSellWaterRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();

@@ -35,7 +35,6 @@ using System.Collections;
 using System.IO;
 using System.Text;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -58,7 +57,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestForbidden()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();

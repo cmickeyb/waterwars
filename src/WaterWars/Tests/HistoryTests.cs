@@ -34,7 +34,6 @@ using System;
 using System.Linq;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -58,7 +57,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestBuyLandRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();
@@ -80,7 +79,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestSalesRevenue()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             AddBuyPoints();

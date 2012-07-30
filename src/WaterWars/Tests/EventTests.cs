@@ -34,7 +34,6 @@ using System;
 using System.Linq;
 using Nini.Config;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -58,7 +57,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestBuildToWaterStageEvents()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton);
@@ -90,7 +89,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestWaterToBuildStageEvents()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton);
@@ -125,7 +124,7 @@ namespace WaterWars.Tests
         [Test]
         public void TestWaterRightsSoldEvents()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             
             AddBuyPoints();
             AddPlayers(Manufacturer.Singleton, Developer.Singleton);

@@ -33,7 +33,6 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -58,7 +57,7 @@ namespace WaterWars.Rules.Generators.Tests
         [Test]
         public void TestGeneration()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             Game game = new Game(UUID.Parse("10000000-0000-0000-0000-000000000000"), "g1", GameStateType.Allocation);

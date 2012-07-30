@@ -38,7 +38,6 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Region.CoreModules.World.Land;
 using OpenSim.Region.Framework.Interfaces;
@@ -62,7 +61,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestGetLastSelected()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -98,7 +97,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestHandleSetLastSelected()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -124,7 +123,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestGetPlayer()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddPlayers(Developer.Singleton, Manufacturer.Singleton);
@@ -166,7 +165,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestGetPlayers()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddPlayers(Developer.Singleton, Manufacturer.Singleton);
@@ -206,7 +205,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestSellWaterRights()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();
@@ -239,7 +238,7 @@ namespace WaterWars.WebServices.Tests
         [Test]
         public void TestSellWater()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
 //            log4net.Config.XmlConfigurator.Configure();
 
             AddBuyPoints();

@@ -33,7 +33,6 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using OpenMetaverse;
 using OpenSim.Tests.Common;
 using WaterWars.Models;
@@ -59,7 +58,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationBelowEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             BuyPoint bp1 = new BuyPoint(UUID.Parse("00000000-0000-0000-0000-000000000011")) { InitialWaterRights = 100 };
@@ -78,7 +77,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationExactlyEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             BuyPoint bp1 = new BuyPoint(UUID.Parse("00000000-0000-0000-0000-000000000011")) { InitialWaterRights = 100 };
@@ -97,7 +96,7 @@ namespace WaterWars.Rules.Distributors.Tests
         [Test]
         public void TestGenerationOverEntitlement()
         {
-            TestHelper.InMethod();
+            TestHelpers.InMethod();
             //log4net.Config.XmlConfigurator.Configure();
             
             BuyPoint bp1 = new BuyPoint(UUID.Parse("00000000-0000-0000-0000-000000000011")) { InitialWaterRights = 100 };
