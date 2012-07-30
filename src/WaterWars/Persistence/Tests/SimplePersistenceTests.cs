@@ -32,14 +32,8 @@
 
 using System;
 using System.IO;
-/ */
-
 using NHibernate;
-/ */
-
 using NHibernate.Cfg;
-/ */
-
 using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
