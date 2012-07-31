@@ -16,6 +16,7 @@
   <Reference name="System.Core"/>
   <Reference name="System.Data"/>
   <Reference name="System.Drawing"/>
+  <Reference name="System.ServiceModel"/>
   <Reference name="System.ServiceModel.Web"/>
   <Reference name="HttpServer_OpenSim.dll" path="../../../../bin/"/>
   <Reference name="log4net.dll" path="../../../../bin/"/>
@@ -26,6 +27,7 @@
   <Reference name="OpenMetaverse.dll" path="../../../../bin/"/>
   <Reference name="OpenMetaverseTypes.dll" path="../../../../bin/"/>
   <Reference name="OpenSim.Framework"/>
+  <Reference name="OpenSim.Framework.Servers"/>
   <Reference name="OpenSim.Framework.Servers.HttpServer"/>
   <Reference name="OpenSim.Region.CoreModules"/>
   <Reference name="OpenSim.Region.Framework"/>

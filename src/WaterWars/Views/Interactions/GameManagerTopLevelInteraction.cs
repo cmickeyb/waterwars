@@ -268,7 +268,7 @@ namespace WaterWars.Views.Interactions
                 {                
                     IAttachmentsModule module = client.Scene.RequestModuleInterface<IAttachmentsModule>();
                     SceneObjectGroup sog
-                        = module.RezSingleAttachmentFromInventory(
+		      = (SceneObjectGroup)module.RezSingleAttachmentFromInventory(
                             sp, new UUID(im.imSessionID), (uint)AttachmentPoint.HUDTop);
                     
                     // A tempoary messy solution to an occasional race where the attached hud sometimes ends up positioned
