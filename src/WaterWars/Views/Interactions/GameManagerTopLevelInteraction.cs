@@ -176,7 +176,8 @@ namespace WaterWars.Views.Interactions
                     agentItem.ID, 
                     true, 
                     sop.AbsolutePosition,
-                    bucket);
+                    bucket,
+		    false);
             
             m_log.InfoFormat("[WATER WARS]: IMSessionId on sending inventory offer [{0}]", agentItem.ID);
 
