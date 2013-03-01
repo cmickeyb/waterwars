@@ -67,6 +67,8 @@ namespace WaterWars
 
         protected List<Scene> m_scenes = new List<Scene>();
         protected WaterWarsController m_controller;
+
+        private bool m_initialized;
         
         public string Name 
         { 
@@ -80,6 +82,7 @@ namespace WaterWars
 
         public void Initialise(IConfigSource config)
         {
+            SceneManager.Instance.OnRegionsReadyStatusChange += HandleOnRegionsReadyStatusChange;
         }
         
         public void AddRegion(Scene scene)
@@ -151,6 +154,11 @@ namespace WaterWars
             }            
         }
 
+        void HandleOnRegionReadyStatusChange(IScene obj)
+        {
+
+        }
+
         public void RegionLoaded(Scene scene)
         {
         }
@@ -158,9 +166,12 @@ namespace WaterWars
         public void RemoveRegion(Scene scene)
         {
         }
-        
-        public void PostInitialise() 
+
+        private void HandleOnRegionsReadyStatusChange(SceneManager obj)
         {
+            if (m_initialized || !obj.AllRegionsReady)
+                return;
+
             try
             {
                 UserAccount economyUserAccount
@@ -194,6 +205,14 @@ namespace WaterWars
             {
                 m_log.ErrorFormat("[WATER WARS]: ERROR {0} {1}", e.Message, e.StackTrace);
             }
+            finally
+            {
+                m_initialized = true;
+            }
+        }
+
+        public void PostInitialise() 
+        {
         }
 
         public void Close()
