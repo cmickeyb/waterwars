@@ -3,11 +3,7 @@ INSTALL
 == Requirements ==
 Water Wars requires 
 
-* A minimum OpenSimulator revision of
-ae507bb (wed mar 9th 2011).  This is post OpenSimulator 0.7.0.2
-but will be fulfilled by the forthcoming OpenSimulator 0.7.1.  This requirement
-should also be fulfilled by the latest OSGrid OpenSimulator distribution
-package.
+* OpenSimulator 0.7.5
 
 * Installation of an OpenSimulator groups module.  For example, the XmlRpcGroups
 server hosted at
@@ -21,7 +17,6 @@ the game requires.
 to display and operate the in-game webpage.
 This webserver must have PHP installed, which itself must have the PHP curl
 module installed.
-
 
 == Installation ==
 There are a number of steps required to install Water Wars.
@@ -51,7 +46,9 @@ You can also make the following optional changes
 entire game area at once.  However, the game will operate as normal if this is
 not set or set to a different value.
 
-2) Copy the regions/ww-regions.ini file into your OpenSimulator bin/Regions
+2) Copy bin/NewtonSoft.Json.Net20.dll into OpenSimulator's bin/ directory.
+
+3) Copy the regions/ww-regions.ini file into your OpenSimulator bin/Regions
 directory.  If you want to run only Water Wars regions (recommended), then
 please also remove any existing config files in bin/Regions
 
@@ -66,14 +63,14 @@ where each number is prefixed by "RioGrande " (e.g. 04 is "RioGrande 04").
 Any of the region details can be changed, including the name.  However, their
 relative positions must be retained (e.g. 23 must be immediately east of 13).
 
-3) Start OpenSimulator.  On startup, it will ask you to assign each region to an
+4) Start OpenSimulator.  On startup, it will ask you to assign each region to an
 estate.  Each region should belong to the same estate (the estate can have any
 name).  The estate owner should be a user called "Water Wars".  This user will
 own all the game objects that don't belong to a paritcular player.
 
-4) Create the groups "Water Wars Players" and "Water Wars Administrators".
+5) Create the groups "Water Wars Players" and "Water Wars Administrators".
 
-5) Load the Water Wars OpenSimulator archives (OARs) into each region.  We do
+6) Load the Water Wars OpenSimulator archives (OARs) into each region.  We do
 this before we install the WaterWars.dll game logic.
 From the region console command line, change to the first region
 
@@ -86,7 +83,7 @@ and load the OAR
 Do the same for each subsequent region.  Once this is done, shutdown the
 simulator.
 
-6) Make the waterwars web pages available from the external server.  These must
+7) Make the waterwars web pages available from the external server.  These must
 be reachable via the address http://hostname/waterwars  The hostname part will
 be the same as the ExternalHostName parameter in each region of ww-regions.ini
 (if ExternalHostName is SYSTEMIP then this is the LAN IP of your OpenSimulator server, e.g.
@@ -96,11 +93,11 @@ You can do this either by copying web/waterwars directly to your public http
 area (e.g. copy it to /var/www/waterwars on Linux) or create a link to the
 distribution directory).
 
-7) Copy bin/WaterWars.dll into your OpenSimulator bin/ directory.  If you're on
+8) Copy bin/WaterWars.dll into your OpenSimulator bin/ directory.  If you're on
 Mono and you built a debug release, then also copy over WaterWars.pdb (this is
 important for obtaining line numbers, etc.)
 
-8) Start OpenSimulator.  During startup, you should see the log message
+9) Start OpenSimulator.  During startup, you should see the log message
 
 [WATER WARS]: Initialising with scene RioGrande 04
 
@@ -108,11 +105,11 @@ for each region, and then later on the message
 
 [WATER WARS]: Starting state Registration
 
-9) [Optional] The estate owner will need to go to the capitol roundhouse building in
+10) [Optional] The estate owner will need to go to the capitol roundhouse building in
 RioGrande 23 and edit it so that it belongs to the Water Wars Administrators
 group.  This will allow people in that group to edit the game parameters in the
 "Game Configuration" notecard.
 
-10) You should now be able to play the game!  Please see the PLAYING.txt document
+11) You should now be able to play the game!  Please see the PLAYING.txt document
 for more details.  I recommend you raise the logging level to INFO (this can be
 done via OpenSim.exe.config).  All Water Wars logging happens at the INFO level.

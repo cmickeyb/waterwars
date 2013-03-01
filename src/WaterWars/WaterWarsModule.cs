@@ -31,6 +31,7 @@
  */
 
 using log4net;
+using Mono.Addins;
 using Nini.Config;
 using OpenMetaverse;
 using System;
@@ -51,12 +52,16 @@ using WaterWars.Rules.Economic.Distributors;
 using WaterWars.Rules.Economic.Forecasters;
 using WaterWars.Rules.Economic.Generators;
 
+[assembly: Addin("WaterWars", "1.0")]
+[assembly: AddinDependency("OpenSim", "0.5")]
+
 namespace WaterWars
 {
     /// <summary>
     /// This is the Water Wars OpenSim region module
     /// </summary>
-    public class WaterWarsModule : IRegionModule
+    [Extension(Path = "/OpenSim/RegionModules", NodeName = "RegionModule", Id = "WaterWarsModule")]
+    public class WaterWarsModule : ISharedRegionModule
     {        
         private static readonly ILog m_log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -68,9 +73,16 @@ namespace WaterWars
             get { return WaterWarsConstants.MODULE_NAME; } 
         }
 
-        public bool IsSharedModule { get { return true; } }
+        public Type ReplaceableInterface 
+        {
+            get { return null; }
+        }
+
+        public void Initialise(IConfigSource config)
+        {
+        }
         
-        public void Initialise(Scene scene, IConfigSource source)
+        public void AddRegion(Scene scene)
         {
             m_log.InfoFormat("[WATER WARS]: Initialising with scene {0}", scene.RegionInfo.RegionName);
             m_scenes.Add(scene);
@@ -137,6 +149,14 @@ namespace WaterWars
                     "ww show status",
                     "Show the status of the game", HandleShowStatusConsoleCommand);                                                 
             }            
+        }
+
+        public void RegionLoaded(Scene scene)
+        {
+        }
+
+        public void RemoveRegion(Scene scene)
+        {
         }
         
         public void PostInitialise() 
